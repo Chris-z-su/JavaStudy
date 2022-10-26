@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<!-- 版本号 -->
+	<tlib-version>1.0</tlib-version>
+	<!-- 短名称：一般和tld文件的文件名保持一致 -->
+	<short-name>SimpleTagLibrary</short-name>
+	<!-- 把tld文件绑定到一个名称空间上，没有实际意义。一般写的像一个网址 -->
+	<uri>http://wwww.shubaoz.top/myfunction</uri>
+	<function><!-- 定义函数 -->
+		<!-- EL函数名称 -->
+		<name>toUpperCase</name>
+		<!-- 方法所在的类全名 -->
+		<function-class>com.bjsxt.functions.MyFunction</function-class>
+		<!-- 方法的签名:类的全名称，只有基本类型不需要 -->
+		<function-signature>java.lang.String toUpperCase( java.lang.String )</function-signature>
+	</function>
+</taglib>

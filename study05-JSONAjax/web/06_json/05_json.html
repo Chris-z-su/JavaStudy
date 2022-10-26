@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>01_json.html</title>
+	
+	<meta name="keywords" content="keyword1,keyword2,keyword3">
+	<meta name="description" content="this is my page">
+	<meta name="content-type" content="text/html; charset=gbk">
+	
+	<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript">
+		window.onload = function() {
+			var xhr = ajaxFunction();
+			xhr.onreadystatechange = function () {
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						var data = xhr.responseText;
+						
+						/*
+							利用eval()函数，将数据转换成JSON格式
+							
+						*/
+						var json = eval("("+data+")");
+						//alert(json);
+						//console.info(json);
+						for (var i = 0; i < json.length; i++) {
+							var provinceValue = json[i].province;
+							//alert(provinceValue);
+							var option = document.createElement("option");
+							option.setAttribute("value", provinceValue);
+							var text = document.createTextNode(provinceValue);
+							option.appendChild(text);
+							
+							var provinceElement = document.getElementById("province");
+							provinceElement.appendChild(option);
+						}
+					}
+				}
+			};
+	
+			xhr.open("get", "../jsonServlet?timeStamp="+new Date().getTime(), true);
+			
+			xhr.send(null);
+			
+			
+			function ajaxFunction() {
+				var xmlHttp = null;
+				try { // Firefox, Opera 8.0+, Safari
+					xmlHttp = new XMLHttpRequest();
+				} catch (e) {
+					try {// Internet Explorer
+						xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+					} catch (e) {
+						try {
+							xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+						} catch (e) {
+						}
+					}
+				}
+	
+				return xmlHttp;
+			};
+		};
+	</script>
+	</head>
+	
+	<body>
+		<select id="province" name="province">
+			<option value="">请选择....</option>
+		</select>
+		<select id="city" name="city">
+			<option value="">请选择.....</option>
+		</select>
+	</body>
+</html>
