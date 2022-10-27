@@ -59,6 +59,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+             
+            <!--  spring-boot-starter-data-redis
+             commons-pool
+             jedis
+             spring-boot-starter-log4j2
+             mybatis-plus-boot-starter
+             dynamic-datasource-spring-boot-starter
+             fastjson
+             mybatis-plus-generator -->
+             
 
     </dependencies>
 
