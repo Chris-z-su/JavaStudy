@@ -2,6 +2,7 @@ package com.shubao.pojo;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Date;
  **/
 @Data
 public class Product {
-    private Date snap_dt;
+    private String snap_dt;
     private Integer ptid;
     private String ptname;
     private Integer pdid;

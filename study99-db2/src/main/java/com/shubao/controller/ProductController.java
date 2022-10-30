@@ -31,25 +31,16 @@ public class ProductController {
 
     @GetMapping("/list")
     public List<Product> getProductList(){
-        // List<Product> productList = jdbcTemplate.query("SELECT * FROM administrator.Producttb",
-        //         new BeanPropertyRowMapper<>(Product.class));
-
         List<Product> productList = productService.queryAllProducts();
         return productList;
     }
 
     @GetMapping("/insert")
     public int insertProduct(){
-        String sql = "";
-        int n = 0;
-        LocalDate startDate = LocalDate.parse("2022-04-11");
-        for (int i = 0; i < 100000000; i++) {
-            sql = "INSERT INTO ADMINISTRATOR.PRODUCTTB (SNAP_DT, PTID, PTNAME, PDID, PDNAME, NUM) " +
-                    "VALUES('" + startDate.toString() + "', 1, '电子产品', " + i+1 + ", '笔记本电脑', 100); ";
-            n = jdbcTemplate.update(sql);
-            startDate = startDate.plusDays(1);
-        }
-        return n;
+        String result = productService.insertProduct();
+        System.out.println("result = " + result);
+
+        return 0;
     }
 
 }

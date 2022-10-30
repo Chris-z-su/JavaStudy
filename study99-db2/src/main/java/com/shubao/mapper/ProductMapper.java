@@ -12,7 +12,6 @@ public interface ProductMapper {
     // @Select("select * from administrator.Producttb")
     List<Product> findAll();
 
-    int insertProduct(List<Product> productList);
-
+    int insertProduct(Product product);
 
 }
