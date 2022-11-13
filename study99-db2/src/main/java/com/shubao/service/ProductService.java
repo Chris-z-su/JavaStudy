@@ -46,7 +46,7 @@ public class ProductService {
     /**
      * 每次处理1000条
      */
-    private static final int BATCH_SIZE = 100000;
+    private static final int BATCH_SIZE = 10000000; // 150000000
 
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
@@ -64,7 +64,7 @@ public class ProductService {
 
         List<Product> productList = new ArrayList<>();
 
-        LocalDate startDate = LocalDate.parse("2023-05-21");
+        LocalDate startDate = LocalDate.parse("2012-01-01");
 
         for (int i = 1; i <= BATCH_SIZE; i++){
             Product product = new Product();
@@ -79,7 +79,7 @@ public class ProductService {
             product.setPdname(pdname);
             product.setNum((int) (Math.random() * 1000 + 1));
             productList.add(product);
-            if (i % 20 == 0) {
+            if (i % 50 == 0) {
                 startDate = startDate.plusDays(1);
             }
         }
